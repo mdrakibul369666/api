@@ -9,7 +9,7 @@ app.get('/' , (req , res)=>{
 })
 
 app.get("/download" , (req ,res)=>{
-    res.download(path.join(__dirname , "hello.txt"))
+    res.download(path.join(__dirname , "myvideo.mp4"))
 })
 
 app.listen(port , ()=>{
