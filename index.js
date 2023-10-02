@@ -1,17 +1,15 @@
-const express = require('express')
-const app = express()
-const port = process.env.PORT ||'3000'
-const path = require('path')
-
-app.get('/' , (req , res)=>{
-    console.log(path.join(__dirname , 'hello.js'))
-    res.send('Hello')
-})
-
-app.get("/download" , (req ,res)=>{
-    res.download(path.join(__dirname , "myvideo.mp4"))
-})
-
-app.listen(port , ()=>{
-    console.log('FuCCCCCCCK')
-})
+const express=require('express');
+const app=express();
+const {PythonShell} =require('python-shell');
+app.get("/",(req,res,next)=>{
+    let options = {
+        mode: 'text',
+        args: ['shubhamk314']
+    };
+    PythonShell.run('hi.py', null, function (err, result){
+         console.log(result)
+    });
+    res.send('hu')
+});
+const port=process.env.PORT||8000;
+app.listen(port,()=>console.log(`Server connected to ${port}`));
